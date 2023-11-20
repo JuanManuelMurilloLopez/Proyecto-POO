@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #ifndef JUGADOR
 #define JUGADOR
 
@@ -33,6 +34,11 @@ class Jugador{
         }
         int getRating(){
             return rating;
+        }
+        virtual void mostrarDatos(){
+            std::cout<<"Nombre: "<<getNombre()<<std::endl;
+            std::cout<<"Numero: "<<getNumero()<<std::endl;
+            std::cout<<"Rating: "<<getRating()<<std::endl;
         }
 };
 
