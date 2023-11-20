@@ -16,6 +16,15 @@ namespace dtr{
                 this-> posicion = posicion;
                 this-> goles = 0;
             };
+            int getGoles(){
+                return goles;
+            }
+            void mostrarDatos() override {
+                std::cout<<"Nombre: "<<getNombre()<<std::endl;
+                std::cout<<"Numero: "<<getNumero()<<std::endl;
+                std::cout<<"Rating: "<<getRating()<<std::endl;
+                std::cout<<"Goles: "<<getGoles()<<std::endl;
+            }
     };
 };
 
