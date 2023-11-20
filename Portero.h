@@ -19,6 +19,15 @@ namespace ptr {
             void nuevaPInv(){
                 porteriaInvicta += 1;
             }
+            int getPorteriaInvicta(){
+                return porteriaInvicta;
+            }
+            void mostrarDatos() override {
+                std::cout<<"Nombre: "<<getNombre()<<std::endl;
+                std::cout<<"Numero: "<<getNumero()<<std::endl;
+                std::cout<<"Rating: "<<getRating()<<std::endl;
+                std::cout<<"Porterias Invictas: "<<getPorteriaInvicta()<<std::endl;
+            }
 };
 };
 
