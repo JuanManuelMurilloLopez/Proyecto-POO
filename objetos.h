@@ -122,29 +122,72 @@
 eqp::Equipo arrayEquipos[10] = {equipo1, equipo2, equipo3, equipo4, equipo5, equipo6, equipo7, equipo8, equipo9, equipo10};
 std::string nombresEquipos[10] = {equipo1.getNombre(),equipo2.getNombre(),equipo3.getNombre(),equipo4.getNombre(),equipo5.getNombre(),equipo6.getNombre(),equipo7.getNombre(),equipo8.getNombre(),equipo9.getNombre(),equipo10.getNombre()};
 
-ptd::Partido partido1J1(equipo1, equipo10);
-ptd::Partido partido2J1(equipo2, equipo9);
-ptd::Partido partido3J1(equipo3, equipo8);
-ptd::Partido partido4J1(equipo4, equipo7);
-ptd::Partido partido5J1(equipo5, equipo6);
+ptd::Partido partido1J1(arrayEquipos[0], arrayEquipos[9]);
+ptd::Partido partido2J1(arrayEquipos[1], arrayEquipos[8]);
+ptd::Partido partido3J1(arrayEquipos[2], arrayEquipos[7]);
+ptd::Partido partido4J1(arrayEquipos[3], arrayEquipos[6]);
+ptd::Partido partido5J1(arrayEquipos[4], arrayEquipos[5]);
+std::array<ptd::Partido, 5> partidosJ1 = {partido1J1, partido2J1, partido3J1, partido4J1, partido5J1};
 
-ptd::Partido partido1J2(equipo1, equipo9);
-ptd::Partido partido2J2(equipo10, equipo8);
-ptd::Partido partido3J2(equipo2, equipo7);
-ptd::Partido partido4J2(equipo3, equipo6);
-ptd::Partido partido5J2(equipo4, equipo5);
+ptd::Partido partido1J2(arrayEquipos[0], arrayEquipos[8]);
+ptd::Partido partido2J2(arrayEquipos[9], arrayEquipos[7]);
+ptd::Partido partido3J2(arrayEquipos[1], arrayEquipos[6]);
+ptd::Partido partido4J2(arrayEquipos[2], arrayEquipos[5]);
+ptd::Partido partido5J2(arrayEquipos[3], arrayEquipos[4]);
+std::array<ptd::Partido, 5> partidosJ2 = {partido1J2, partido2J2, partido3J2, partido4J2, partido5J2};
 
-ptd::Partido partido1J3(equipo1, equipo8);
-ptd::Partido partido2J3(equipo9, equipo7);
-ptd::Partido partido3J3(equipo10, equipo6);
-ptd::Partido partido4J3(equipo2, equipo5);
-ptd::Partido partido5J3(equipo3, equipo4);
+ptd::Partido partido1J3(arrayEquipos[0], arrayEquipos[7]);
+ptd::Partido partido2J3(arrayEquipos[8], arrayEquipos[6]);
+ptd::Partido partido3J3(arrayEquipos[9], arrayEquipos[5]);
+ptd::Partido partido4J3(arrayEquipos[1], arrayEquipos[4]);
+ptd::Partido partido5J3(arrayEquipos[2], arrayEquipos[3]);
+std::array<ptd::Partido, 5> partidosJ3 = {partido1J3, partido2J3, partido3J3, partido4J3, partido5J3};
 
-ptd::Partido partido1J4(equipo1, equipo7);
-ptd::Partido partido2J4(equipo8, equipo6);
-ptd::Partido partido3J4(equipo9, equipo5);
-ptd::Partido partido4J4(equipo10, equipo4);
-ptd::Partido partido5J4(equipo2, equipo3);
-//Añadir los partidos faltantes
+ptd::Partido partido1J4(arrayEquipos[0], arrayEquipos[6]);
+ptd::Partido partido2J4(arrayEquipos[7], arrayEquipos[5]);
+ptd::Partido partido3J4(arrayEquipos[8], arrayEquipos[4]);
+ptd::Partido partido4J4(arrayEquipos[9], arrayEquipos[3]);
+ptd::Partido partido5J4(arrayEquipos[1], arrayEquipos[2]);
+std::array<ptd::Partido, 5> partidosJ4 = {partido1J4, partido2J4, partido3J4, partido4J4, partido5J4};
+
+ptd::Partido partido1J5(arrayEquipos[0],arrayEquipos[5]);
+ptd::Partido partido2J5(arrayEquipos[6],arrayEquipos[4]);
+ptd::Partido partido3J5(arrayEquipos[7],arrayEquipos[3]);
+ptd::Partido partido4J5(arrayEquipos[8],arrayEquipos[2]);
+ptd::Partido partido5J5(arrayEquipos[9],arrayEquipos[1]);
+std::array<ptd::Partido, 5> partidosJ5 = {partido1J5, partido2J5, partido3J5, partido4J5, partido5J5};
+
+ptd::Partido partido1J6(arrayEquipos[0],arrayEquipos[4]);
+ptd::Partido partido2J6(arrayEquipos[5],arrayEquipos[3]);
+ptd::Partido partido3J6(arrayEquipos[6],arrayEquipos[2]);
+ptd::Partido partido4J6(arrayEquipos[7],arrayEquipos[1]);
+ptd::Partido partido5J6(arrayEquipos[8],arrayEquipos[9]);
+std::array<ptd::Partido, 5> partidosJ6 = {partido1J6, partido2J6, partido3J6, partido4J6, partido5J6};
+
+ptd::Partido partido1J7(arrayEquipos[0],arrayEquipos[3]);
+ptd::Partido partido2J7(arrayEquipos[4],arrayEquipos[2]);
+ptd::Partido partido3J7(arrayEquipos[5],arrayEquipos[1]);
+ptd::Partido partido4J7(arrayEquipos[6],arrayEquipos[9]);
+ptd::Partido partido5J7(arrayEquipos[7],arrayEquipos[8]);
+std::array<ptd::Partido, 5> partidosJ7 = {partido1J7, partido2J7, partido3J7, partido4J7, partido5J7};
+
+ptd::Partido partido1J8(arrayEquipos[0],arrayEquipos[2]);
+ptd::Partido partido2J8(arrayEquipos[3],arrayEquipos[1]);
+ptd::Partido partido3J8(arrayEquipos[4],arrayEquipos[9]);
+ptd::Partido partido4J8(arrayEquipos[5],arrayEquipos[8]);
+ptd::Partido partido5J8(arrayEquipos[6],arrayEquipos[7]);
+std::array<ptd::Partido, 5> partidosJ8 = {partido1J8, partido2J8, partido3J8, partido4J8, partido5J8};
+
+ptd::Partido partido1J9(arrayEquipos[0],arrayEquipos[1]);
+ptd::Partido partido2J9(arrayEquipos[2],arrayEquipos[9]);
+ptd::Partido partido3J9(arrayEquipos[3],arrayEquipos[8]);
+ptd::Partido partido4J9(arrayEquipos[4],arrayEquipos[7]);
+ptd::Partido partido5J9(arrayEquipos[5],arrayEquipos[6]);
+std::array<ptd::Partido, 5> partidosJ9 = {partido1J9, partido2J9, partido3J9, partido4J9, partido5J9};
+
+std::array<std::array<ptd::Partido, 5>, 9> partidosLiga = {partidosJ1, partidosJ2, partidosJ3, partidosJ4, partidosJ5, partidosJ6, partidosJ7, partidosJ8, partidosJ9};
+
+
+
 
 #endif
