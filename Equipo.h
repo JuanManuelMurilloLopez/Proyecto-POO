@@ -50,7 +50,7 @@ namespace eqp {
         }
 
         void setRating(){
-            this-> rating = portero.getRating() + defensa1.getRating() + defensa2.getRating() + medio1.getRating() + medio2.getRating()  + delantero1.getRating() + delantero2.getRating();
+            this-> rating = (portero.getRating() + defensa1.getRating() + defensa2.getRating() + medio1.getRating() + medio2.getRating()  + delantero1.getRating() + delantero2.getRating())/7;
         };
 
         float getRating(){
@@ -113,12 +113,13 @@ namespace eqp {
             return partidosGanados;
         }
 
-        int getPuntos(){
+        int getPuntos() const {
             return puntos;
         }
 
-        void actualizarDatos(std::string status){
+        void actualizarDatos(std::string status, unsigned int gol){
             partidosJugados += 1;
+            goles += gol;
             if (status == "Ganado"){
                 partidosGanados += 1;
                 puntos += 3;
@@ -133,17 +134,17 @@ namespace eqp {
         }
 
         void mostrarPlantilla(){
-            std::cout<<portero.getNombre()<<std::setw(10)<<portero.getNumero()<<std::endl;
-            std::cout<<defensa1.getNombre()<<std::setw(10)<<defensa1.getNumero()<<std::endl;
-            std::cout<<defensa2.getNombre()<<std::setw(10)<<defensa2.getNumero()<<std::endl;
-            std::cout<<medio1.getNombre()<<std::setw(10)<<medio1.getNumero()<<std::endl;
-            std::cout<<medio2.getNombre()<<std::setw(10)<<medio2.getNumero()<<std::endl;
-            std::cout<<delantero1.getNombre()<<std::setw(10)<<delantero1.getNumero()<<std::endl;
-            std::cout<<delantero2.getNombre()<<std::setw(10)<<delantero2.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<portero.getNombre()<<std::setw(20 - portero.getNombre().size())<<"Numero: "<<portero.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<defensa1.getNombre()<<std::setw(20 - defensa1.getNombre().size())<<"Numero: "<<defensa1.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<defensa2.getNombre()<<std::setw(20 - defensa2.getNombre().size())<<"Numero: "<<defensa2.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<medio1.getNombre()<<std::setw(20 - medio1.getNombre().size())<<"Numero: "<<medio1.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<medio2.getNombre()<<std::setw(20 - medio2.getNombre().size())<<"Numero: "<<medio2.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<delantero1.getNombre()<<std::setw(20 - delantero1.getNombre().size())<<"Numero: "<<delantero1.getNumero()<<std::endl;
+            std::cout<<"Nombre: "<<delantero2.getNombre()<<std::setw(20 - delantero2.getNombre().size())<<"Numero: "<<delantero2.getNumero()<<std::endl;
         }
         
         void mostrarDatos(){
-            std::cout<<getGoles()<<getNombre()<<getPE()<<std::endl;
+            std::cout<<"Nombre: "<<nombre<<std::setw(20 - nombre.size())<<"Goles: "<<goles<<std::setw(20)<<"Rating: "<<rating<<std::endl;
         }
     };
 };
