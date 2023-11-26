@@ -1,3 +1,9 @@
+/*
+Simulador de Liga de Futbol 7 con 10 equipos.
+Autor: Juan Manuel Murillo López
+Fecha de Modificación:  26/11/23
+*/
+
 #include <iostream>
 #include <vector>
 #include <array>
@@ -21,6 +27,7 @@ unsigned int simularGoles(eqp::Equipo& equipo){
     }
     return goles;
 }
+
 void simularAsistencias(eqp::Equipo& equipo1,unsigned int goles){
     for(unsigned int i = 0; i < goles; i++){
         unsigned int random = std::rand() % 2;
@@ -32,16 +39,19 @@ void simularAsistencias(eqp::Equipo& equipo1,unsigned int goles){
         }
     }
 }
+
 void simularPorteriaInvicta(eqp::Equipo& equipo, unsigned int golesEnContra){
     if(golesEnContra == 0){
         equipo.getPortero().nuevaPInv();
     }
 }
+
 void simularIntercepciones(eqp::Equipo& equipo){
     int intercepciones = std::rand() % 8;
     equipo.getDefensa1().setIntercepciones(intercepciones);
     equipo.getDefensa2().setIntercepciones(intercepciones);
 }
+
 void simularPartido(eqp::Equipo& equipo1, eqp::Equipo& equipo2){
     unsigned int golesEq1 = simularGoles(equipo1);
     unsigned int golesEq2 = simularGoles(equipo2);
@@ -101,6 +111,7 @@ int main(){
         std::cout<<"*";
         Sleep(100);
     }
+    
     std::cout<<""<<std::endl;
     //Imprimir los nombres de los equipos
     std::cout<<"Seleccione un equipo"<<std::endl;
@@ -120,6 +131,7 @@ int main(){
             NumEqJug = i;
         }
     }
+    
     Sleep(500);
     std::cout<<std::setw(50)<<"Menu Principal"<<std::endl;
     unsigned int opcionMP = 0;
