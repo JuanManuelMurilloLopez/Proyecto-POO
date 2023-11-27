@@ -197,7 +197,7 @@ int main(){
             std::cout<<"Numero de jornada: "<<jornada<<std::endl;
             std::cout<<"Partidos: "<<std::endl;
             for(int i = 0; i < 5; i++){
-                partidosLiga[jornada][i].anunciarPartido();
+                partidosLiga[jornada - 1][i].anunciarPartido();
             }
             std::cout<<"Presione Enter para jugar jornada"<<std::endl;
             std::cin.get();
