@@ -11,13 +11,18 @@ Fecha de Modificación:  26/11/23
 #include <algorithm>
 #include "objetos.h"
 
+//Función para simular los goles en un partido entre 2 equipos (utilizado en el void simularPartido).
 unsigned int simularGoles(eqp::Equipo& equipo){
+    //Creación de variables para ajustar la probabilidad de anotar gol.
     const float PROB_BASE_MIN = 0.3;
     const float PROB_BASE_MAX = 0.6;
     const float RATINGAJUSTE = 0.01;
+    //Creación de una probabilidad base utilizando un número aleatorio para obtener datos diferentes en cada iteración.
     float probabilidadBase = PROB_BASE_MIN + static_cast<float>(std::rand()) / RAND_MAX * (PROB_BASE_MAX - PROB_BASE_MIN);
+    //Creación de la probabilidad con el rating del equipo.
     float probabilidad = probabilidadBase + RATINGAJUSTE * equipo.getRating();
     unsigned int goles = 0;
+    //Creación de intentos de gol para dar aleatorización a los goles.
     unsigned int intentos = 1 + std::rand() % 2;
     for (unsigned int i = 0; i < intentos; ++i) {
         float random = static_cast<float>(std::rand()) / RAND_MAX;
@@ -28,7 +33,9 @@ unsigned int simularGoles(eqp::Equipo& equipo){
     return goles;
 }
 
+//Función para simular las asistencias en realción con los goles anotados en un partido entre 2 equipos (utilizado en el void simularPartido)
 void simularAsistencias(eqp::Equipo& equipo1,unsigned int goles){
+    //Se dividen aleatoriamente las asistencias de cada gol entre los medios.
     for(unsigned int i = 0; i < goles; i++){
         unsigned int random = std::rand() % 2;
         if(random == 0){
@@ -40,18 +47,21 @@ void simularAsistencias(eqp::Equipo& equipo1,unsigned int goles){
     }
 }
 
+//Función para obtener las porterías invictas en realción con los goles anotados del rival en un partido entre 2 equipos (utilizado en el void simularPartido)
 void simularPorteriaInvicta(eqp::Equipo& equipo, unsigned int golesEnContra){
     if(golesEnContra == 0){
         equipo.getPortero().nuevaPInv();
     }
 }
 
+//Función para simular las intercepciones de cada defensa en un partido entre 2 equipos (utilizado en el void simularPartido)
 void simularIntercepciones(eqp::Equipo& equipo){
     int intercepciones = std::rand() % 8;
     equipo.getDefensa1().setIntercepciones(intercepciones);
     equipo.getDefensa2().setIntercepciones(intercepciones);
 }
 
+//Función con el algoritmo para simular las estadísticas de un partido entre 2 equipos
 void simularPartido(eqp::Equipo& equipo1, eqp::Equipo& equipo2){
     unsigned int golesEq1 = simularGoles(equipo1);
     unsigned int golesEq2 = simularGoles(equipo2);
@@ -75,8 +85,11 @@ void simularPartido(eqp::Equipo& equipo1, eqp::Equipo& equipo2){
     }
 }
 
+//Función para mostrar el formato de la tabla con los datos actualizados de cada partido
 void mostrarTabla(){
+    //Creación de un vector copia del arrayEquipos
     std::vector<eqp::Equipo> arrayEquiposSort(arrayEquipos, arrayEquipos + 10);
+    //Ordenamiento del vector copia para ordenar la tabla poniendo el equipo con mayor número de puntos al inicio sin modificar el array de equipos.
     std::sort(arrayEquiposSort.begin(), arrayEquiposSort.end(), [](const eqp::Equipo& equipoX, const eqp::Equipo& equipoY) {
         return equipoX.getPuntos() > equipoY.getPuntos();
     });
@@ -99,13 +112,14 @@ void mostrarTabla(){
 
 
 int main(){
+    //Inicialización de la semilla para el random.
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     unsigned int jornada = 1;
-    //Iniciar Juego
+    //Iniciar Juego.
     std::cout<<"Presione Enter para iniciar"<<std::endl;
     std::cin.get();
-    //Crear delay
+    //Crear delay.
     std::cout<<"Cargando Juego"<<std::endl;
     for(unsigned int i = 0; i<10; i++){
         std::cout<<"*";
@@ -113,7 +127,7 @@ int main(){
     }
     
     std::cout<<""<<std::endl;
-    //Imprimir los nombres de los equipos
+    //Imprimir los nombres de los equipos.
     std::cout<<"Seleccione un equipo"<<std::endl;
     for(unsigned int i = 0; i<10; i++){
         std::cout<<nombresEquipos[i];
@@ -121,12 +135,13 @@ int main(){
     }
 
     std::cout<<""<<std::endl;
-    //El usuario selecciona el nombre del equipo con el que desea jugar
+    //El usuario selecciona el nombre del equipo con el que desea jugar.
     std::string NomEqJug = "";
     std::getline(std::cin,NomEqJug);
     int NumEqJug = -1;
     for(int i = 0; i<10; i++){
         if(NomEqJug == nombresEquipos[i]){
+            //Se le añade un identificador al equipo seleccionado por el usuario.
             arrayEquipos[i].setNombre(arrayEquipos[i].getNombre() + "(Mi Eq.)");
             NumEqJug = i;
         }
@@ -135,9 +150,9 @@ int main(){
     Sleep(500);
     std::cout<<std::setw(50)<<"Menu Principal"<<std::endl;
     unsigned int opcionMP = 0;
-    //Se crea un menú ciclado para el Menú Principal
+    //Se crea un menú ciclado para el Menú Principal.
     while(opcionMP != 5){
-        //Se da a elegir entre las funcionalidades
+        //Se da a elegir entre las funcionalidades.
         std::cout<<"1- Mostrar Plantilla"<<std::endl;
         std::cout<<"2- Mostrar Estadisticas/Datos"<<std::endl;
         std::cout<<"3- Mostrar Tabla"<<std::endl;
@@ -157,7 +172,7 @@ int main(){
                 arrayEquipos[NumEqJug].mostrarDatos();
             }
             else if(opcionEst == 2){
-                //Muestra todos los jugadores del equipo y da la opcion de elegir uno para mostrar sus datos
+                //Muestra todos los jugadores del equipo y da la opcion de elegir uno para mostrar sus datos.
                 unsigned int opcEstJug = 0;
                 std::cout<<"1- "<<arrayEquipos[NumEqJug].getPortero().getNombre()<<std::endl;
                 std::cout<<"2- "<<arrayEquipos[NumEqJug].getDefensa1().getNombre()<<std::endl;
@@ -194,6 +209,7 @@ int main(){
             mostrarTabla();
         }
         else if(opcionMP == 4){
+            //Mostrar el número de jornada y todos partidos de la misma
             std::cout<<"Numero de jornada: "<<jornada<<std::endl;
             std::cout<<"Partidos: "<<std::endl;
             for(int i = 0; i < 5; i++){
@@ -207,6 +223,7 @@ int main(){
                 Sleep(100);
             }
             std::cout<<""<<std::endl;
+            //Simular todos los partidos dependiendo de la jornada.
             if(jornada == 1){
                 simularPartido(arrayEquipos[0], arrayEquipos[9]);
                 simularPartido(arrayEquipos[1], arrayEquipos[8]);
