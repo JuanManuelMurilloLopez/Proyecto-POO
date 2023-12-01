@@ -3,13 +3,13 @@
 #include <array>
 #include "Jugador.h"
 #include "Equipo.h"
-#include "Jornada.h"
-#include "Liga.h"
+
+/*Archivo para la creación de todos los objetos utilizados en el main para tener un control y un main más limpio*/
 
 #ifndef OBJETOS
 #define OBJETOS
 
-    //Equipo1
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo1
     ptr::Portero portero1Eq1("Curtois",1,209);
     dfs::Defensa defensa1Eq1("Juanfran",2,238,"pos");
     dfs::Defensa defensa2Eq1("Miranda",3,212,"pos");
@@ -20,7 +20,7 @@
 
     eqp::Equipo equipo1("Atletico de Madrid",portero1Eq1, defensa1Eq1, defensa2Eq1, medio1Eq1, medio2Eq1, delantero1Eq1, delantero2Eq1);
 
-    //Equipo2
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo2
     ptr::Portero portero1Eq2("Victor Valdes",1,212);
     dfs::Defensa defensa1Eq2("Dani Alves",2,244,"pos");
     dfs::Defensa defensa2Eq2("Mascherano",3,222,"pos");
@@ -31,7 +31,7 @@
 
     eqp::Equipo equipo2("Barcelona",portero1Eq2, defensa1Eq2, defensa2Eq2, medio1Eq2, medio2Eq2, delantero1Eq2, delantero2Eq2);
 
-    //Equipo3
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo3
     ptr::Portero portero1Eq3("Casilla",1,205);
     dfs::Defensa defensa1Eq3("Hector Moreno",2,222,"pos");
     dfs::Defensa defensa2Eq3("Javi Lopez",3,205,"pos");
@@ -42,7 +42,7 @@
 
     eqp::Equipo equipo3("Espanyol",portero1Eq3, defensa1Eq3, defensa2Eq3, medio1Eq3, medio2Eq3, delantero1Eq3, delantero2Eq3);
 
-    //Equipo4
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo4
     ptr::Portero portero1Eq4("Casillas",1,207);
     dfs::Defensa defensa1Eq4("Pepe",2,233,"pos");
     dfs::Defensa defensa2Eq4("Marcelo",3,234,"pos");
@@ -53,7 +53,7 @@
 
     eqp::Equipo equipo4("Real Madrid",portero1Eq4, defensa1Eq4, defensa2Eq4, medio1Eq4, medio2Eq4, delantero1Eq4, delantero2Eq4);
 
-    //Equipo5
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo5
     ptr::Portero portero1Eq5("Bravo",1,212);
     dfs::Defensa defensa1Eq5("Carlos Martinez",2,209,"pos");
     dfs::Defensa defensa2Eq5("Mikel Gonzalez",3,204,"pos");
@@ -64,7 +64,7 @@
 
     eqp::Equipo equipo5("Real Sociedad",portero1Eq5, defensa1Eq5, defensa2Eq5, medio1Eq5, medio2Eq5, delantero1Eq5, delantero2Eq5);
 
-    //Equipo6
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo6
     ptr::Portero portero1Eq6("Beto",1,195);
     dfs::Defensa defensa1Eq6("Fernando Navarro",2,202,"pos");
     dfs::Defensa defensa2Eq6("Carrico",3,202,"pos");
@@ -75,7 +75,7 @@
 
     eqp::Equipo equipo6("Sevilla",portero1Eq6, defensa1Eq6, defensa2Eq6, medio1Eq6, medio2Eq6, delantero1Eq6, delantero2Eq6);
     
-    //Equipo7
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo7
     ptr::Portero portero1Eq7("Diego Lopez",1,207);
     dfs::Defensa defensa1Eq7("Matheu",2,225,"pos");
     dfs::Defensa defensa2Eq7("Bernat",3,214,"pos");
@@ -86,7 +86,7 @@
 
     eqp::Equipo equipo7("Valencia",portero1Eq7, defensa1Eq7, defensa2Eq7, medio1Eq7, medio2Eq7, delantero1Eq7, delantero2Eq7);
 
-    //Equipo8
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo8
     ptr::Portero portero1Eq8("Gorka Iraizoz",1,209);
     dfs::Defensa defensa1Eq8("Iraola",2,230,"pos");
     dfs::Defensa defensa2Eq8("Laporte",3,205,"pos");
@@ -97,7 +97,7 @@
 
     eqp::Equipo equipo8("Athetic Club",portero1Eq8, defensa1Eq8, defensa2Eq8, medio1Eq8, medio2Eq8, delantero1Eq8, delantero2Eq8);
 
-    //Equipo9
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo9
     ptr::Portero portero1Eq9("Esteban",1,199);
     dfs::Defensa defensa1Eq9("Rafita",2,196,"pos");
     dfs::Defensa defensa2Eq9("Trujillo",3,202,"pos");
@@ -108,7 +108,7 @@
 
     eqp::Equipo equipo9("Almeria",portero1Eq9, defensa1Eq9, defensa2Eq9, medio1Eq9, medio2Eq9, delantero1Eq9, delantero2Eq9);
 
-    //Equipo10
+    //Creación de los objetos de las clases derivadas de Jugador y creación del objeto equipo10
     ptr::Portero portero1Eq10("Marino",1,195);
     dfs::Defensa defensa1Eq10("Rukavina",2,222,"pos");
     dfs::Defensa defensa2Eq10("Baraja",3,195,"pos");
@@ -122,6 +122,7 @@
 eqp::Equipo arrayEquipos[10] = {equipo1, equipo2, equipo3, equipo4, equipo5, equipo6, equipo7, equipo8, equipo9, equipo10};
 std::string nombresEquipos[10] = {equipo1.getNombre(),equipo2.getNombre(),equipo3.getNombre(),equipo4.getNombre(),equipo5.getNombre(),equipo6.getNombre(),equipo7.getNombre(),equipo8.getNombre(),equipo9.getNombre(),equipo10.getNombre()};
 
+//Creación de los objetos de clase partido junto a sus arrays y la matriz con todos los objetos
 ptd::Partido partido1J1(arrayEquipos[0], arrayEquipos[9]);
 ptd::Partido partido2J1(arrayEquipos[1], arrayEquipos[8]);
 ptd::Partido partido3J1(arrayEquipos[2], arrayEquipos[7]);
