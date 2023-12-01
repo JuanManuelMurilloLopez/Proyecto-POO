@@ -4,7 +4,7 @@
 #define JUGADOR
 
 class Jugador{
-    private:
+    protected:
         std::string nombre;
         int numero;
         int rating;
